@@ -16,6 +16,7 @@ public:
 	void resize(float width, float height);
 	void render(void);
 	void resetViewport(void);
+    void setClearColor(GLclampf r, GLclampf g, GLclampf b, GLclampf a);
 protected:
 private:
 

@@ -18,10 +18,16 @@ CRenderer& CRenderer::instance(void) {
 
 bool CRenderer::initialize(void) {
 	glEnable(GL_DEPTH_TEST);
-	glDepthFunc(GL_LESS); 
+	glDepthFunc(GL_LESS);
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f); 
 
 	return true;
 }
+
+void CRenderer::setClearColor(GLclampf r, GLclampf g, GLclampf b, GLclampf a) {
+    glClearColor(r, g, b, a);
+}
+     
 
 void CRenderer::resize(float width, float height) {
 	m_width = width;
@@ -31,7 +37,10 @@ void CRenderer::resize(float width, float height) {
 }
 
 void CRenderer::render(void) {
+#ifndef EMSCRIPTEN
+    // Is not implemented in emscripten library
 	glfwSwapBuffers();
+#endif
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 

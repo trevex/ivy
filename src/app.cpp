@@ -21,7 +21,7 @@ CApp& CApp::instance(void) {
     return app;
 }
 
-bool CApp::initialize(const char* title, int width, int height, bool fullscreen) {
+bool CApp::initialize(std::string title, int width, int height, bool fullscreen) {
 	// Try to initialize OpenGL
 	if (!glfwInit()) {
 		std::cout << "Unable to initialize OpenGL!" << std::endl;
@@ -37,7 +37,7 @@ bool CApp::initialize(const char* title, int width, int height, bool fullscreen)
 		glfwTerminate();
 		return false;
 	}
-	glfwSetWindowTitle(title);
+	glfwSetWindowTitle(title.c_str());
 	// Enable sticky keys for capturing
 	glfwEnable(GLFW_STICKY_KEYS);
 	// Try to initialize the Renderer
