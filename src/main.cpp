@@ -23,7 +23,7 @@ int main( void )
     
 	// Main loop
 #ifdef EMSCRIPTEN
-    emscripten_set_main_loop(frame, 60, true);
+    emscripten_set_main_loop(frame, 0, true);
 #else
 	while (App.run()) {
         frame();		
